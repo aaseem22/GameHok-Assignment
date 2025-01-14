@@ -11,7 +11,7 @@
 ```bash
 git clone <repository-url>
 ```
-Replace `[<repository-url>](https://github.com/aaseem22/GameHok-Assignment.git)` with the project URL.
+Replace `https://github.com/aaseem22/GameHok-Assignment.git` with the project URL.
 
 ### 2. Open in Android Studio
 1. Launch Android Studio.
