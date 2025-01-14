@@ -9,7 +9,7 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone [<repository-url>](https://github.com/aaseem22/GameHok-Assignment.git)
+git clone https://github.com/aaseem22/GameHok-Assignment.git
 ```
 
 ### 2. Open in Android Studio
