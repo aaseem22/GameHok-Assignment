@@ -10,9 +10,8 @@ import com.thepuzzledev.gamehok_assignment.ui.screens.tournamentDetail.Tournamen
 
 @Composable
 fun NavigationHost() {
-    val navController = rememberNavController() // Create NavController
+    val navController = rememberNavController()
 
-    // Set up the NavHost
     NavHost(navController = navController, startDestination = "MainScreen") {
         composable("MainScreen") { HomeScreen(navController) }
         composable("TournamentDetail") { TournamentDetailScreen(navController) }

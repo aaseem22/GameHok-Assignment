@@ -1,4 +1,5 @@
 package com.thepuzzledev.gamehok_assignment.ui.screens.tournamentDetail
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,14 +31,11 @@ fun TournamentTabs() {
     val scope = rememberCoroutineScope()
 
     Column {
-        // Custom Tab Row
-        TabRow(
-            selectedTabIndex = pagerState.currentPage,
+        TabRow(selectedTabIndex = pagerState.currentPage,
             modifier = Modifier.fillMaxWidth(),
             containerColor = Color(0xFF0A1F0A),
             contentColor = Color.White,
-            divider = { /* Remove default divider */ }
-        ) {
+            divider = { /* Remove default divider */ }) {
             tabs.forEachIndexed { index, title ->
                 Tab(
                     selected = pagerState.currentPage == index,
@@ -52,13 +50,11 @@ fun TournamentTabs() {
                         modifier = Modifier.padding(vertical = 8.dp)
                     ) {
                         Text(
-                            text = title,
-                            fontWeight = if (pagerState.currentPage == index) {
+                            text = title, fontWeight = if (pagerState.currentPage == index) {
                                 FontWeight.Bold
                             } else {
                                 FontWeight.Normal
-                            },
-                            color = if (pagerState.currentPage == index) {
+                            }, color = if (pagerState.currentPage == index) {
                                 Color.White
                             } else {
                                 Color.White.copy(alpha = 0.6f)
@@ -78,11 +74,8 @@ fun TournamentTabs() {
                 }
             }
         }
-
-        // Content Pager
         HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxSize()
+            state = pagerState, modifier = Modifier.fillMaxSize()
         ) { page ->
             Box(
                 modifier = Modifier
@@ -108,34 +101,23 @@ private fun OverviewContent() {
         verticalArrangement = Arrangement.spacedBy(22.dp)
     ) {
         Text(
-            text = "Details",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.White
+            text = "Details", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White
         )
 
-        // Team Size
         DetailItem(
-            icon = R.drawable.green_group,
-            label = "TEAM SIZE",
-            value = "Solo"
+            icon = R.drawable.green_group, label = "TEAM SIZE", value = "Solo"
         )
 
-        // Format
         DetailItem(
-            icon = R.drawable.format,
-            label = "FORMAT",
-            value = "Single Elimination"
+            icon = R.drawable.format, label = "FORMAT", value = "Single Elimination"
         )
 
-        // Tournament Start
         DetailItem(
             icon = R.drawable.calendar,
             label = "TOURNAMENT STARTS",
             value = "Tue 24th Jan 2024, 01:00 PM"
         )
 
-        // Check-in
         DetailItem(
             icon = R.drawable.check_in,
             label = "CHECK-IN",
@@ -148,11 +130,8 @@ private fun OverviewContent() {
 private fun PlayersContent() {
     Column {
         Text(
-            text = "Registered Players",
-            color = Color.White,
-            fontWeight = FontWeight.Bold
+            text = "Registered Players", color = Color.White, fontWeight = FontWeight.Bold
         )
-        // Add your players list here
     }
 }
 
@@ -160,11 +139,8 @@ private fun PlayersContent() {
 private fun RulesContent() {
     Column {
         Text(
-            text = "Tournament Rules",
-            color = Color.White,
-            fontWeight = FontWeight.Bold
+            text = "Tournament Rules", color = Color.White, fontWeight = FontWeight.Bold
         )
-        // Add your rules content here
     }
 }
 

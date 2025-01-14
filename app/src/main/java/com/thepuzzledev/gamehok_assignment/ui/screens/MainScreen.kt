@@ -21,11 +21,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -85,12 +81,12 @@ fun HomeScreen(navController: NavController) {
 fun ProfileSection() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween, // Ensures items are aligned to opposite ends
+        horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
             .padding(6.dp)
     ) {
-        // Left section (Profile Image)
+
         Box(
             contentAlignment = Alignment.BottomEnd, modifier = Modifier.size(56.dp)
         ) {
@@ -112,10 +108,10 @@ fun ProfileSection() {
                     .align(Alignment.BottomEnd)
             ) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.List, // Replace with your icon resource
+                    imageVector = Icons.AutoMirrored.Filled.List,
                     contentDescription = "Overlay Icon",
                     tint = Color.White,
-                    modifier = Modifier.size(16.dp) // Adjust icon size as needed
+                    modifier = Modifier.size(16.dp)
                 )
             }
         }
@@ -140,8 +136,9 @@ fun ProfileSection() {
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "245", // Ticket count
-                            color = Color.White, style = MaterialTheme.typography.bodyMedium
+                            text = "245",
+                            color = Color.White,
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                     VerticalDivider(
@@ -184,7 +181,7 @@ fun PremiumCardsCarousel(
     ) {
         HorizontalPager(
             state = pagerState, modifier = Modifier.fillMaxWidth()
-        ) { page ->
+        ) {
             PremiumCard(
                 onGetNowClick = onGetNowClick,
                 onViewAllFeatureClick = onViewAllFeatureClick,

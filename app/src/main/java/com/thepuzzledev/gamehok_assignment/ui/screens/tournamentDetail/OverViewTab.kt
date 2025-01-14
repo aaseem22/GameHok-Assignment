@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.sp
         Icon(
             painter = painterResource(icon),
             contentDescription = null,
-            tint = Color(0xFF4ADE80), // Light green color
+            tint = Color(0xFF4ADE80),
             modifier = Modifier.size(24.dp)
         )
 

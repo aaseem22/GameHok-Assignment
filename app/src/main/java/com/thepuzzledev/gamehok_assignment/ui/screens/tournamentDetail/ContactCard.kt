@@ -1,6 +1,9 @@
 package com.thepuzzledev.gamehok_assignment.ui.screens.tournamentDetail
+
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,14 +16,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -35,9 +36,13 @@ import com.thepuzzledev.gamehok_assignment.R
 fun OrganizerDetailsCard() {
     Card(
         modifier = Modifier
+
             .fillMaxWidth()
-            .padding(16.dp),
+
+            .padding(16.dp)
+        ,
         shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(width = 1.dp, color = Color.White.copy(0.5f))
     ) {
         Column(
             modifier = Modifier
@@ -49,13 +54,12 @@ fun OrganizerDetailsCard() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color(0xFF182920),
-                            Color(0xFF4D5A53)
-                        ), startY = 0f, endY = Float.POSITIVE_INFINITY
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color(0xFF182920), Color(0xFF4D5A53)
+                            ), startY = 0f, endY = Float.POSITIVE_INFINITY
+                        )
                     )
-                )
                     .padding(24.dp)
             ) {
                 Text(
@@ -66,12 +70,10 @@ fun OrganizerDetailsCard() {
                 )
             }
 
-            // Content
             Column(
                 modifier = Modifier.padding(24.dp),
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
-                // Organization Info
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -109,7 +111,6 @@ fun OrganizerDetailsCard() {
                     }
                 }
 
-                // Description
                 Text(
                     text = "This is the in house organiser of this platform\nyou can follow our page on this platform for\nregular updates",
                     color = Color.White.copy(alpha = 0.8f),
@@ -117,7 +118,6 @@ fun OrganizerDetailsCard() {
                     lineHeight = 24.sp
                 )
 
-                // Contact Details
                 Column(
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
@@ -125,22 +125,20 @@ fun OrganizerDetailsCard() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
                         ContactRow(
-                            icon = Icons.Default.Phone,
-                            text = "9890987754"
+                            icon = Icons.Default.Phone, text = "9890987754"
                         )
                         Spacer(modifier = Modifier.width(2.dp))
                         ContactRow(
-                            icon = Icons.Default.Email,
-                            text = "Support@gamehok.com"
+                            icon = Icons.Default.Email, text = "Support@gamehok.com"
                         )
                     }
 
 
                     ContactRow(
-                        icon = Icons.Default.Notifications, // You'll need to add this icon
-                        text = "9890987754"
+                        icon = Icons.Default.Notifications, text = "9890987754"
                     )
                 }
             }
@@ -150,9 +148,7 @@ fun OrganizerDetailsCard() {
 
 @Composable
 private fun ContactRow(
-    icon: ImageVector,
-    text: String,
-    modifier: Modifier = Modifier
+    icon: ImageVector, text: String, modifier: Modifier = Modifier
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -166,9 +162,7 @@ private fun ContactRow(
             modifier = Modifier.size(20.dp)
         )
         Text(
-            text = text,
-            color = Color.White,
-            fontSize = 14.sp
+            text = text, color = Color.White, fontSize = 14.sp
         )
     }
 }

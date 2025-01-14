@@ -1,6 +1,5 @@
 package com.thepuzzledev.gamehok_assignment.ui.screens.tournamentDetail
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

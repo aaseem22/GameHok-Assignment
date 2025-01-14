@@ -94,12 +94,12 @@ fun TournamentDetailScreen(navController: NavController) {
                 modifier = Modifier.padding(8.dp)
             )
             HorizontalTournamentCards(tournaments = sampleTournaments, onClick = { tournament ->
-                // Handle click event
                 println("Clicked on tournament: ${tournament.title}")
             })
         }
-        Spacer(modifier = Modifier.height(2.dp))
-        HorizontalDivider(thickness = 1.dp)
+        Spacer(modifier = Modifier.height(16.dp))
+        HorizontalDivider(thickness = 1.dp, color = Color.White.copy(0.5f))
+        Spacer(modifier = Modifier.height(4.dp))
         Button(
             onClick = {},
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF01A74B)),
@@ -137,8 +137,7 @@ fun TopBanner(navController: NavController) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(
-                onClick = { navController.popBackStack() },
-                modifier = Modifier
+                onClick = { navController.popBackStack() }, modifier = Modifier
                     .background(
                         Color.Gray.copy(alpha = 0.5f), RoundedCornerShape(50)
                     )
@@ -152,7 +151,7 @@ fun TopBanner(navController: NavController) {
             }
 
             IconButton(
-                onClick = { /* Handle share */ },
+                onClick = { },
                 modifier = Modifier
                     .background(Color(0xFF002E14), RoundedCornerShape(50))
                     .size(48.dp)
@@ -173,7 +172,6 @@ fun TopBanner(navController: NavController) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Registration Timer
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(24.dp))
@@ -186,8 +184,6 @@ fun TopBanner(navController: NavController) {
                     fontSize = 12.sp
                 )
             }
-
-            // Player Count
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(24.dp))
@@ -226,7 +222,6 @@ fun TournamentHeader() {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.Top
         ) {
-            // Left side content
             Column(
                 modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
@@ -244,12 +239,10 @@ fun TournamentHeader() {
                     fontWeight = FontWeight.Normal
                 )
 
-                // Tags row
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.padding(top = 16.dp)
                 ) {
-                    // BGMI Tag
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(8.dp))
@@ -260,8 +253,6 @@ fun TournamentHeader() {
                             text = "BGMI", color = Color.White, fontSize = 14.sp
                         )
                     }
-
-                    // Entry-10 Tag with coin
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(8.dp))
@@ -274,8 +265,6 @@ fun TournamentHeader() {
                     }
                 }
             }
-
-            // Red Bull logo
             Image(
                 painter = painterResource(id = R.drawable.red_bull),
                 contentDescription = "Red Bull Logo",

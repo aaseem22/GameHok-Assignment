@@ -14,12 +14,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -42,7 +40,7 @@ import com.thepuzzledev.gamehok_assignment.R
 fun GameDetailScreen(
     navController: NavController,
 ) {
-    var selectedTab by remember { mutableStateOf(0) }
+    var selectedTab by remember { mutableIntStateOf(0) }
     val tabs = listOf("Overview", "Streams", "Tutorials", "Group")
 
     Scaffold(
@@ -72,15 +70,12 @@ fun GameDetailScreen(
                     .fillMaxWidth()
                     .height(200.dp)
             ) {
-                // Game Banner
                 Image(
                     painter = painterResource(id = R.drawable.pubg),
                     contentDescription = "Game Banner",
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
-
-                // Overlay with game info
                 Column(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -102,8 +97,6 @@ fun GameDetailScreen(
                     }
                 }
             }
-
-            // Quick Stats
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -114,8 +107,6 @@ fun GameDetailScreen(
                 StatItem("15K", "Live Viewers")
                 StatItem("1.2K", "Tutorials")
             }
-
-            // Tab Navigation
             TabRow(selectedTabIndex = selectedTab,
                 containerColor = Color(0xFF001208),
                 contentColor = Color.White
@@ -128,8 +119,6 @@ fun GameDetailScreen(
                     )
                 }
             }
-
-            // Tab Content
             when (selectedTab) {
                 0 -> OverviewTab()
                 1 -> StreamsTab()
@@ -420,7 +409,7 @@ private fun CommunityTab() {
                 Spacer(modifier = Modifier.height(8.dp))
                 repeat(3) {
                     DiscussionItem()
-                    if (it < 2) Divider(modifier = Modifier.padding(vertical = 8.dp))
+                    if (it < 2) HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
                 }
             }
         }
@@ -448,7 +437,7 @@ private fun DiscussionItem() {
             )
         }
         IconButton(onClick = { }) {
-            Icon(Icons.Default.ArrowForward, "View Discussion")
+            Icon(Icons.AutoMirrored.Filled.ArrowForward, "View Discussion")
         }
     }
 }

@@ -33,15 +33,13 @@ fun CourseSection() {
             author = "Abhijeet Nishal",
             duration = "16 Mins",
             thumbnailId = R.drawable.course_thumbnail
-        ),
-        CourseData(
+        ), CourseData(
             title = "Advanced Gaming Strategies",
             subtitle = "Master advanced techniques and competitive gameplay",
             author = "Sarah Johnson",
             duration = "20 Mins",
             thumbnailId = R.drawable.course_thumbnail
-        ),
-        CourseData(
+        ), CourseData(
             title = "Game Analysis",
             subtitle = "Learn to analyze games and improve decision making and improve gyro",
             author = "Mike Chen",
@@ -50,24 +48,20 @@ fun CourseSection() {
         )
     )
     Column {
-        Text("Learn from best to be the best",
+        Text(
+            "Learn from best to be the best",
             fontSize = 20.sp,
             color = Color.White,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(4.dp)
         )
-        CourseCarousel(
-            courses = sampleCourses,
-            onStartCourse = { /* Handle course selection */ }
-        )
+        CourseCarousel(courses = sampleCourses, onStartCourse = { /* Handle course selection */ })
     }
 }
 
 @Composable
 fun CourseCarousel(
-    courses: List<CourseData>,
-    modifier: Modifier = Modifier,
-    onStartCourse: (CourseData) -> Unit
+    courses: List<CourseData>, modifier: Modifier = Modifier, onStartCourse: (CourseData) -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { courses.size })
 
@@ -84,11 +78,9 @@ fun CourseCarousel(
                 .wrapContentHeight(),
             contentPadding = PaddingValues(horizontal = 32.dp)
         ) { page ->
-            CourseCard(
-                courseData = courses[page],
+            CourseCard(courseData = courses[page],
                 modifier = Modifier.fillMaxWidth(0.9f),
-                onStartCourse = { onStartCourse(courses[page]) }
-            )
+                onStartCourse = { onStartCourse(courses[page]) })
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -121,9 +113,7 @@ fun CourseCarousel(
 
 @Composable
 fun CourseCard(
-    courseData: CourseData,
-    modifier: Modifier = Modifier,
-    onStartCourse: () -> Unit
+    courseData: CourseData, modifier: Modifier = Modifier, onStartCourse: () -> Unit
 ) {
     Card(
         modifier = modifier
@@ -140,8 +130,7 @@ fun CourseCard(
             modifier = Modifier.background(
                 brush = Brush.verticalGradient(
                     colors = listOf(
-                        Color(0xFFFFFFFF),
-                        Color(0xFFC4CFFF)
+                        Color(0xFFFFFFFF), Color(0xFFC4CFFF)
                     ), startY = 0f, endY = Float.POSITIVE_INFINITY
                 )
             )
@@ -149,13 +138,12 @@ fun CourseCard(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(8.dp)
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // Thumbnail with aspect ratio
                     Box(
                         modifier = Modifier
                             .weight(1f)
@@ -170,8 +158,6 @@ fun CourseCard(
                             contentScale = ContentScale.Crop
                         )
                     }
-
-                    // Course Info
                     Column(
                         modifier = Modifier
                             .weight(1.5f)
@@ -205,12 +191,10 @@ fun CourseCard(
 
                 Spacer(modifier = Modifier.height(8.dp))
                 HorizontalDivider(
-                    thickness = 1.dp,
-                    color = Color.White
+                    thickness = 1.dp, color = Color.White
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Bottom Row with Duration and Button
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,

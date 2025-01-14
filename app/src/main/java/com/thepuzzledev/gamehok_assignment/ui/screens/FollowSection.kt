@@ -102,7 +102,6 @@ fun ProfileCard(
             )
         }
 
-        // Follow Button
         Button(
             onClick = {
                 isFollowing = !isFollowing

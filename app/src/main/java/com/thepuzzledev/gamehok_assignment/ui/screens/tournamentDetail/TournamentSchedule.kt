@@ -3,7 +3,6 @@ package com.thepuzzledev.gamehok_assignment.ui.screens.tournamentDetail
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,38 +26,22 @@ data class TournamentRound(
 fun TournamentScheduleSection() {
     val rounds = listOf(
         TournamentRound(
-            "Qualifiers",
-            1,
-            "Top 4 to next round",
-            "Single Elimination",
-            "3rd Aug, 10:00 pm"
-        ),
-        TournamentRound(
-            "Round of 32",
-            2,
-            "Top 16 advance",
-            "Single Elimination",
-            "4th Aug, 2:00 pm"
-        ),
-        TournamentRound(
-            "Round of 16",
-            3,
-            "Top 8 advance",
-            "Double Elimination",
-            "4th Aug, 6:00 pm"
+            "Qualifiers", 1, "Top 4 to next round", "Single Elimination", "3rd Aug, 10:00 pm"
+        ), TournamentRound(
+            "Round of 32", 2, "Top 16 advance", "Single Elimination", "4th Aug, 2:00 pm"
+        ), TournamentRound(
+            "Round of 16", 3, "Top 8 advance", "Double Elimination", "4th Aug, 6:00 pm"
         )
     )
 
     TournamentSchedule(
-        rounds = rounds,
-        modifier = Modifier.fillMaxWidth()
+        rounds = rounds, modifier = Modifier.fillMaxWidth()
     )
 }
 
 @Composable
 fun TournamentSchedule(
-    rounds: List<TournamentRound>,
-    modifier: Modifier = Modifier
+    rounds: List<TournamentRound>, modifier: Modifier = Modifier
 ) {
     val darkBackground = Color(0xFF0A1810)
     val grayText = Color(0xFF8B8B8B)
@@ -108,8 +91,7 @@ fun TournamentSchedule(
                         fontSize = 16.sp,
                         modifier = Modifier
                             .background(
-                                eliminationBgColor,
-                                RoundedCornerShape(8.dp)
+                                eliminationBgColor, RoundedCornerShape(8.dp)
                             )
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                     )
@@ -122,14 +104,10 @@ fun TournamentSchedule(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = round.description,
-                        color = Color.White,
-                        fontSize = 16.sp
+                        text = round.description, color = Color.White, fontSize = 16.sp
                     )
                     Text(
-                        text = round.dateTime,
-                        color = Color.White,
-                        fontSize = 16.sp
+                        text = round.dateTime, color = Color.White, fontSize = 16.sp
                     )
                 }
 
